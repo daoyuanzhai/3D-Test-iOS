@@ -85,8 +85,8 @@
                                                 self.scrollView.contentSize.height)];
 
     // Title.
-    [self.overlayTitle setTextColor:[UIColor whiteColor]];
-    [self.overlayTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:32.0]];
+    [self.overlayTitle setTextColor:[UIColor grayColor]];
+    [self.overlayTitle setFont:[UIFont fontWithName:@"Helvetica" size:16.0]];
     [self.overlayTitle setTextAlignment:NSTextAlignmentCenter];
 
     // PageControl configuration.
@@ -126,16 +126,24 @@
 
 #pragma mark - Constraints management.
 - (void)addAllConstraints {
-    [self.frontLayerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-	[self.backLayerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    // [self.frontLayerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+	// [self.backLayerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(_overlayTitle, _leftButton, _rightButton, _pageControl, _gradientView);
+    NSDictionary *views = NSDictionaryOfVariableBindings(_frontLayerView, _backLayerView, _overlayTitle, _leftButton, _rightButton, _pageControl, _gradientView);
     NSMutableArray *constraints = [NSMutableArray array];
     
+    // frontLayer view.
+    [self.frontLayerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [constraints addObject:@"V:[_frontLayerView]-[_pageControl]"];
+
+    // backLayer view.
+    [self.backLayerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [constraints addObject:@"V:[_backLayerView]-[_pageControl]"];
+
     // Overlay title.
     [self.overlayTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [constraints addObject:@"V:|-116-[_overlayTitle(==50)]"];
-    [constraints addObject:@"H:|-54-[_overlayTitle(==212)]-|"];
+    [constraints addObject:@"V:[_overlayTitle]-16-|"];
+    [constraints addObject:@"H:|-[_overlayTitle]-|"];
     
     // Buttons.
     [self.leftButton setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -146,7 +154,7 @@
 
     // PageControl.
     [self.pageControl setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [constraints addObject:@"V:[_pageControl(==32)]-20-|"];
+    [constraints addObject:@"V:[_pageControl(==32)]-[_overlayTitle]"];
     [constraints addObject:@"H:|-[_pageControl]-|"];
 
     // GradientView.
@@ -271,7 +279,7 @@
 // Setup the Title Label.
 - (void)setOverlayTitle {
     // ...or change by an UIImageView if you need it.
-    [self.overlayTitle setText:@""];
+    [self.overlayTitle setText:NSLocalizedString(@"we_do_not_post_anything_to_facebook", nil)];
 }
 
 // Setup the Title/Subtitle style/text.
