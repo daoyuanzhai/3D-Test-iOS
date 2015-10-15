@@ -1,9 +1,9 @@
 
 /* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "FB8-7O-5eT"; */
-"FB8-7O-5eT.title" = "Item 2";
+"FB8-7O-5eT.title" = "本地";
 
 /* Class = "UITabBarItem"; title = "Item"; ObjectID = "GbA-cq-a3k"; */
-"GbA-cq-a3k.title" = "Item";
+"GbA-cq-a3k.title" = "云端";
 
 /* Class = "UINavigationItem"; title = "Video Archive"; ObjectID = "sv1-w2-qAn"; */
-"sv1-w2-qAn.title" = "Video Archive";
+"sv1-w2-qAn.title" = "视频文档";

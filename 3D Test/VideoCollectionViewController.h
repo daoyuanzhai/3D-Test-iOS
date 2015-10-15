@@ -10,4 +10,7 @@
 
 @interface VideoCollectionViewController : UICollectionViewController
 
+@property (strong, nonatomic) NSMutableArray* videoThumbs;
+@property (strong, nonatomic) NSCache* thumbnailCache;
+
 @end
