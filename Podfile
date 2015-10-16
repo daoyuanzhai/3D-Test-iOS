@@ -2,6 +2,11 @@
 platform :ios, '6.1'
 pod 'SDWebImage', '~>3.7'
 pod 'AVOSCloud'
+pod 'Parse'
+pod 'ParseUI'
+pod 'ParseFacebookUtilsV4'
+
+=begin
 # pod 'ICETutorial', '~>1.1.1'
 target '3D Test' do
 
@@ -14,4 +19,5 @@ end
 target '3D TestUITests' do
 
 end
+=end
 

@@ -159,8 +159,8 @@
 
     // GradientView.
     [self.gradientView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [constraints addObject:@"V:[_gradientView(==200)]-0-|"];
-    [constraints addObject:@"H:|-0-[_gradientView(==320)]-0-|"];
+    [constraints addObject:@"V:[_gradientView(==200)]-|"];
+    [constraints addObject:@"H:|-[_gradientView(==320)]-|"];
     
     // Set constraints.
     for (NSString *string in constraints) {
