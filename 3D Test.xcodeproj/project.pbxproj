@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8BCC7C2A4D6DEB265F43F7C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB112C7D9F7E7F46F6A5004F /* libPods.a */; };
 		DA37DF101BCE342200343104 /* WelcomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA37DF0F1BCE342200343104 /* WelcomePageViewController.m */; settings = {ASSET_TAGS = (); }; };
-		DA618C251BCFA3E700EDF533 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA618C241BCFA3E700EDF533 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DA6D5F291BD20D2200101B7E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6D5F281BD20D2200101B7E /* Utils.m */; settings = {ASSET_TAGS = (); }; };
 		DAB1FA751BCE636100EBCE2A /* ICETutorialController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1FA701BCE636100EBCE2A /* ICETutorialController.m */; settings = {ASSET_TAGS = (); }; };
 		DAB1FA761BCE636100EBCE2A /* ICETutorialPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1FA721BCE636100EBCE2A /* ICETutorialPage.m */; settings = {ASSET_TAGS = (); }; };
 		DAB1FA771BCE636100EBCE2A /* ICETutorialStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1FA741BCE636100EBCE2A /* ICETutorialStyle.m */; settings = {ASSET_TAGS = (); }; };
@@ -48,7 +48,8 @@
 		CB112C7D9F7E7F46F6A5004F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37DF0E1BCE342200343104 /* WelcomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomePageViewController.h; sourceTree = "<group>"; };
 		DA37DF0F1BCE342200343104 /* WelcomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePageViewController.m; sourceTree = "<group>"; };
-		DA618C241BCFA3E700EDF533 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		DA6D5F271BD20D2200101B7E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		DA6D5F281BD20D2200101B7E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		DAB1FA6C1BCE5FB500EBCE2A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		DAB1FA6F1BCE636100EBCE2A /* ICETutorialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICETutorialController.h; sourceTree = "<group>"; };
 		DAB1FA701BCE636100EBCE2A /* ICETutorialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICETutorialController.m; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAE1E9FD1BC7C4EC00DC7272 /* AVFoundation.framework in Frameworks */,
-				DA618C251BCFA3E700EDF533 /* FBSDKCoreKit.framework in Frameworks */,
 				8BCC7C2A4D6DEB265F43F7C6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +109,6 @@
 		14D27E9D60BCE0A74C53328E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DA618C241BCFA3E700EDF533 /* FBSDKCoreKit.framework */,
 				DAE1E9FC1BC7C4EC00DC7272 /* AVFoundation.framework */,
 				CB112C7D9F7E7F46F6A5004F /* libPods.a */,
 			);
@@ -141,6 +140,22 @@
 			children = (
 			);
 			name = UIView;
+			sourceTree = "<group>";
+		};
+		DA6D5F221BD1F88D00101B7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DA6D5F261BD20CFE00101B7E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DA6D5F271BD20D2200101B7E /* Utils.h */,
+				DA6D5F281BD20D2200101B7E /* Utils.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		DAB1FA6E1BCE633600EBCE2A /* ICETutorial */ = {
@@ -190,6 +205,8 @@
 		DAE1E9BD1BC7929900DC7272 /* 3D Test */ = {
 			isa = PBXGroup;
 			children = (
+				DA6D5F261BD20CFE00101B7E /* Utility */,
+				DA6D5F221BD1F88D00101B7E /* Model */,
 				DA37DF501BCE452A00343104 /* UIView */,
 				DA37DF0D1BCE2F5500343104 /* UIViewController */,
 				DAE1E9C11BC7929900DC7272 /* AppDelegate.h */,
@@ -419,6 +436,7 @@
 				DAB1FA771BCE636100EBCE2A /* ICETutorialStyle.m in Sources */,
 				DAB1FA761BCE636100EBCE2A /* ICETutorialPage.m in Sources */,
 				DAE1E9C31BC7929900DC7272 /* AppDelegate.m in Sources */,
+				DA6D5F291BD20D2200101B7E /* Utils.m in Sources */,
 				DAE1E9FB1BC7A06D00DC7272 /* VideoCollectionViewController.m in Sources */,
 				DA37DF101BCE342200343104 /* WelcomePageViewController.m in Sources */,
 				DAB1FA751BCE636100EBCE2A /* ICETutorialController.m in Sources */,

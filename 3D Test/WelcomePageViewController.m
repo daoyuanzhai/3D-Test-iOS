@@ -7,7 +7,10 @@
 //
 
 #import "WelcomePageViewController.h"
-
+#import "Utils.h"
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <FBSDKAccessToken.h>
+#import <FBSDKGraphRequest.h>
 
 @interface WelcomePageViewController ()
 
@@ -25,8 +28,8 @@
     [self.buttonFacebook setTitle:NSLocalizedString(@"connect_with_facebook", nil) forState:UIControlStateNormal];
     [self.buttonFacebook setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.buttonFacebook setTitleColor:[UIColor blackColor] forState:(UIControlStateHighlighted | UIControlStateSelected)];
-    [self.buttonFacebook setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:(59/255.0) green:(89/255.0) blue:(152/255.0) alpha:1.0]] forState:UIControlStateNormal];
-    [self.buttonFacebook setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:(59/255.0) green:(59/255.0) blue:(100/255.0) alpha:1.0]] forState:(UIControlStateHighlighted | UIControlStateSelected)];
+    [self.buttonFacebook setBackgroundImage:[Utils imageWithColor:[UIColor colorWithRed:(59/255.0) green:(89/255.0) blue:(152/255.0) alpha:1.0]] forState:UIControlStateNormal];
+    [self.buttonFacebook setBackgroundImage:[Utils imageWithColor:[UIColor colorWithRed:(59/255.0) green:(59/255.0) blue:(100/255.0) alpha:1.0]] forState:(UIControlStateHighlighted | UIControlStateSelected)];
     
     [self setupSubView];
 }
@@ -75,25 +78,12 @@
     [self addChildViewController:self.subController];
     [[self view] addSubview:[self.subController view]];
     [self.subController view].frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+    [self.buttonFacebook addTarget:self action:@selector(processLogin) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(UIImage *)imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
 }
 
 /*
@@ -124,6 +114,43 @@
     NSLog(@"Auto-scrolling stopped.");
     
     [self.subController stopScrolling];
+}
+
+-(void) processLogin {
+    NSMutableArray* permissions = [NSMutableArray arrayWithObjects:@"public_profile", @"email", @"user_likes",
+                                    @"user_about_me", @"user_birthday", @"user_location", @"user_hometown",
+                                    @"user_education_history", @"user_work_history", nil];
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+            [self updateFacebookUserInfo];
+        }
+    }];
+}
+
+-(void) updateFacebookUserInfo {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name, about, link, age_range, birthday, gender, location,relationship_status, education, email, first_name, middle_name, last_name, work, cover, hometown, languages, locale,meeting_for, political, religion, updated_time"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            if (!error) {
+                NSLog(@"fetched user:%@", result);
+                PFUser* currentUser = [PFUser currentUser];
+                currentUser[@"profile"] = result;
+                [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        // The object has been saved.
+                    } else {
+                        // There was a problem, check error.description
+                    }
+                }];
+            } else {
+                NSLog(@"%@",[error localizedDescription]);
+            }
+        }];
+    }
 }
 
 @end
