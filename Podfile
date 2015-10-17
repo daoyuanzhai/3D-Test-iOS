@@ -1,10 +1,8 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '6.1'
+platform :ios, '9.0'
 pod 'SDWebImage', '~>3.7'
 pod 'AVOSCloud'
-pod 'Parse'
-pod 'ParseUI'
-pod 'ParseFacebookUtilsV4'
+pod 'ParseFacebookUtilsV4', '~> 1.9.0'
 
 =begin
 # pod 'ICETutorial', '~>1.1.1'
