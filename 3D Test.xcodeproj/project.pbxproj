@@ -10,6 +10,7 @@
 		8BCC7C2A4D6DEB265F43F7C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB112C7D9F7E7F46F6A5004F /* libPods.a */; };
 		DA37DF101BCE342200343104 /* WelcomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA37DF0F1BCE342200343104 /* WelcomePageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DA6D5F291BD20D2200101B7E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6D5F281BD20D2200101B7E /* Utils.m */; settings = {ASSET_TAGS = (); }; };
+		DA6D5F2C1BD2107600101B7E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6D5F2B1BD2107600101B7E /* Constants.m */; settings = {ASSET_TAGS = (); }; };
 		DAB1FA751BCE636100EBCE2A /* ICETutorialController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1FA701BCE636100EBCE2A /* ICETutorialController.m */; settings = {ASSET_TAGS = (); }; };
 		DAB1FA761BCE636100EBCE2A /* ICETutorialPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1FA721BCE636100EBCE2A /* ICETutorialPage.m */; settings = {ASSET_TAGS = (); }; };
 		DAB1FA771BCE636100EBCE2A /* ICETutorialStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1FA741BCE636100EBCE2A /* ICETutorialStyle.m */; settings = {ASSET_TAGS = (); }; };
@@ -50,6 +51,8 @@
 		DA37DF0F1BCE342200343104 /* WelcomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePageViewController.m; sourceTree = "<group>"; };
 		DA6D5F271BD20D2200101B7E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		DA6D5F281BD20D2200101B7E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		DA6D5F2A1BD2107600101B7E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		DA6D5F2B1BD2107600101B7E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		DAB1FA6C1BCE5FB500EBCE2A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		DAB1FA6F1BCE636100EBCE2A /* ICETutorialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICETutorialController.h; sourceTree = "<group>"; };
 		DAB1FA701BCE636100EBCE2A /* ICETutorialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICETutorialController.m; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 			children = (
 				DA6D5F271BD20D2200101B7E /* Utils.h */,
 				DA6D5F281BD20D2200101B7E /* Utils.m */,
+				DA6D5F2A1BD2107600101B7E /* Constants.h */,
+				DA6D5F2B1BD2107600101B7E /* Constants.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				DA37DF101BCE342200343104 /* WelcomePageViewController.m in Sources */,
 				DAB1FA751BCE636100EBCE2A /* ICETutorialController.m in Sources */,
 				DAE1E9C01BC7929900DC7272 /* main.m in Sources */,
+				DA6D5F2C1BD2107600101B7E /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

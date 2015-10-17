@@ -8,6 +8,7 @@
 
 #import "WelcomePageViewController.h"
 #import "Utils.h"
+#import "Constants.h"
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <FBSDKAccessToken.h>
 #import <FBSDKGraphRequest.h>
@@ -138,7 +139,7 @@
             if (!error) {
                 NSLog(@"fetched user:%@", result);
                 PFUser* currentUser = [PFUser currentUser];
-                currentUser[@"profile"] = result;
+                currentUser[PROFILE] = result;
                 [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
                         // The object has been saved.
